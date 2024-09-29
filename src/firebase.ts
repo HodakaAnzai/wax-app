@@ -1,23 +1,27 @@
-// firebaseの基本設定
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { Auth, getAuth, GoogleAuthProvider } from "firebase/auth";
+import { Firestore, getFirestore } from "firebase/firestore";
 
-// .env ファイルの環境変数を使用
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_API_KEY,
-    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-    projectId: import.meta.env.VITE_PROJECT_ID,
-    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_APP_ID
+  apiKey: import.meta.env.VITE_API_KEY as string,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN as string,
+  projectId: import.meta.env.VITE_PROJECT_ID as string,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET as string,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID as string,
+  appId: import.meta.env.VITE_APP_ID as string,
 };
 
+// Firebase アプリの初期化
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+
+// Firebase Authentication の初期化
+const auth: Auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-const db = getFirestore(app);
+
+// Firestore データベースの初期化
+const db: Firestore = getFirestore(app);
 
 export { auth, db, provider };
+
 
 
