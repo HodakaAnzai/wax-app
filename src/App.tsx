@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, HashRouter as Router, Routes } from 'react-router-dom';
 import { ChooseButtonArea } from "./components/ChooseButtonArea";
 import { ChooseHairsettypeArea } from './components/ChooseHairsettypeArea';
 import { ChooseShineLevelArea } from "./components/ChooseShineLevelArea";

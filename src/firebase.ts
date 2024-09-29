@@ -3,20 +3,21 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-
+// .env ファイルの環境変数を使用
 const firebaseConfig = {
-    apiKey: "AIzaSyDwqCDiMaf3VZijw9i5OIlku97qWG3KQX8",
-    authDomain: "apppractise-6a570.firebaseapp.com",
-    projectId: "apppractise-6a570",
-    storageBucket: "apppractise-6a570.appspot.com",
-    messagingSenderId: "244311954810",
-    appId: "1:244311954810:web:c3229a19443f7fda6db2c3"
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_APP_ID
 };
 
-
 const app = initializeApp(firebaseConfig);
-const auth=getAuth(app);
-const provider= new GoogleAuthProvider();
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
+
 export { auth, db, provider };
+
 
